@@ -55,7 +55,7 @@ docker rm teamcity-server teamcity-agent
 * Open [localhost:8111](http://localhost:8111)
 * Log-in with empty username and the token shown in the container log file
 * Go to the "Administration" section and click on "Users" to create a new user account (make sure to give the super administrative privilege)
-* Authorize the agent [http://localhost:8111/agents.html](http://localhost:8111/agents.html?tab=unauthorizedAgents)
+* Authorize the agent [localhost:8111/agents](http://localhost:8111/agents.html?tab=unauthorizedAgents)
 * Go to the "Projects" section and create a new project (use `https://github.com/devpro/ci-tools-demo` as repository URL)
 * Use "Auto-detected Build Steps" to have TeamCity review what is needed (you can select everything except the NuGet and msbuild step)
 * Review steps and step names and start a new build
