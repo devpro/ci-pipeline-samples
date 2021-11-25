@@ -1,0 +1,21 @@
+default:
+  image: mcr.microsoft.com/dotnet/sdk:5.0
+
+stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  script:
+    - cd dotnet
+    - dotnet restore
+    - dotnet build --no-restore --configuration Debug
+
+test_job:
+  stage: test
+  script:
+    - cd dotnet
+    - dotnet test --no-build --configuration Debug
+  dependencies:
+    - build_job
