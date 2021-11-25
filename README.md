@@ -2,7 +2,7 @@
 
 Simple "getting started" tutorials with various tools.
 
-[![GitLab Pipeline Status](https://gitlab.com/devprofr/ci-tools-demo/-/commits/main)](https://gitlab.com/devprofr/ci-tools-demo/badges/main/pipeline.svg)
+[![GitLab Pipeline Status](https://gitlab.com/devprofr/ci-tools-demo/badges/main/pipeline.svg)](https://gitlab.com/devprofr/ci-tools-demo/-/commits/main)
 
 ## Code samples
 
