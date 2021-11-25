@@ -1,0 +1,25 @@
+default:
+  image: mcr.microsoft.com/dotnet/sdk:5.0
+
+variables:
+  ROOT_FOLDER: .
+  DOTNET_CONFIGURATION: Debug
+
+stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  script:
+    - cd $ROOT_FOLDER
+    - dotnet restore
+    - dotnet build --no-restore --configuration $DOTNET_CONFIGURATION
+
+test_job:
+  stage: test
+  script:
+    - cd $ROOT_FOLDER
+    - dotnet test --no-build --configuration $DOTNET_CONFIGURATION
+  dependencies:
+    - build_job
