@@ -29,7 +29,7 @@ docker run -v //var/run/docker.sock:/var/run/docker.sock -v bambooVolume:/var/at
 
 ### Configuration
 
-Open [localhost:8085/](http://localhost:8085/)
+Open [localhost:8085](http://localhost:8085/)
 
 #### Set server capabilities
 
@@ -37,10 +37,10 @@ _Limitation 2021-02-28_: Unfortunately it is not possible to automate it through
 
 You have to manually go to this page ["Bamboo administration > Server capabilities"](http://localhost:8085/admin/agent/configureSharedLocalCapabilities.action) and set the server capabilities (if not present), it must be done only once/
 
-Category | Executable / Label | Path | Bamboo key
--------- | ---------- | ---- | ----------
-Executable | dotnet | `/usr/bin/dotnet` | `system.builder.command.dotnet`
-Docker | Docker | `/usr/bin/docker` | `system.docker.executable`
+Category   | Executable / Label | Path              | Bamboo key
+-----------|--------------------|-------------------|--------------------------------
+Executable | dotnet             | `/usr/bin/dotnet` | `system.builder.command.dotnet`
+Docker     | Docker             | `/usr/bin/docker` | `system.docker.executable`
 
 ### Troubleshooting
 

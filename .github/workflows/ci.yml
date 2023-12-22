@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 2 * * 1-5"
+
+env:
+  python_version: 3.8
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ env.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ env.python_version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint
+      - name: Lint all yaml files
+        run: |
+          yamllint .

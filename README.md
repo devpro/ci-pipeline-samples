@@ -12,5 +12,5 @@ Simple "getting started" tutorials with various tools.
 
 * [Bamboo Data Center](./docs/bamboo.md): self-hosted (as a container)
 * [Bitbucket](./docs/bitbucket-cloud.md): hosted in the Cloud
-* [GitLab](https://gitlab.com/Be11S/ci-tools-demo): hosted in the Cloud
+* [GitLab](https://gitlab.com/devpro-labs/ci-pipeline-samples): hosted in the Cloud
 * [TeamCity Professional](./docs/teamcity.md): self-hosted (as a container)

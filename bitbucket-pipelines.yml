@@ -9,7 +9,7 @@ pipelines:
               - dotnetcore
             script:
               - REPORTS_PATH=./test-reports/build_${BITBUCKET_BUILD_NUMBER}
-              - cd dotnet
+              - cd samples/dotnet
               - dotnet restore
               - dotnet build --no-restore --configuration Release
               - dotnet test --no-build --configuration Release --test-adapter-path:. --logger:"junit;LogFilePath=$REPORTS_PATH/junit.xml"
@@ -20,7 +20,7 @@ pipelines:
             script:
               - export SOLUTION_NAME=Devpro.CIToolsDemo
               - export REPORTS_PATH=linter-reports
-              - cd dotnet
+              - cd samples/dotnet
               - dotnet new tool-manifest
               - dotnet tool install JetBrains.ReSharper.GlobalTools --version 2021.1.0-eap02
               - dotnet tool restore

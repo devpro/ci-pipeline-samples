@@ -1,4 +1,4 @@
 variables:
-  ROOT_FOLDER: dotnet
+  ROOT_FOLDER: samples/dotnet
 
-include: "/.gitlab-ci/dotnet/build-test.yml"
+include: "/.gitlab/dotnet/build-test.yml"

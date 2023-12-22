@@ -8,7 +8,7 @@ Read more from [everyday-cheatsheets](https://github.com/devpro/everyday-cheatsh
 
 ## Setup
 
-#### Create local folders
+### Create local folders
 
 ```bash
 # creates local folders to store TeamCity run files
