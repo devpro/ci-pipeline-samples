@@ -1,6 +1,6 @@
 # Demonstration of Continuous Integration (CI) tools
 
-[![GitLab Pipeline Status](https://gitlab.com/devpro-labs/ci-tools-demo/badges/main/pipeline.svg)](https://gitlab.com/devpro-labs/ci-tools-demo/-/commits/main)
+[![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/devpro-labs%2Fci-pipeline-samples?logo=GitLab)](https://gitlab.com/devpro-labs/ci-tools-demo/-/commits/main)
 
 Let's explore different tools to implement CI pipelines!
 
