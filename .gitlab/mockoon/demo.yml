@@ -1,0 +1,63 @@
+# works
+# mockoon:demo:
+#   stage: test
+#   image: node:lts
+#   before_script:
+#     - npm install -g @mockoon/cli
+#     - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000
+#   script:
+#     - curl http://localhost:3000/users?total=5
+
+# works
+mockoon:demo-dotnet:
+  stage: test
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  before_script:
+    - apt-get update
+    - apt-get install -y gnupg
+    - apt-get install -y npm
+    - npm install -g @mockoon/cli
+    - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000 &
+    - sleep 5
+  script:
+    - curl http://localhost:3000/users?total=5
+
+# fails: FATAL: No HOST or PORT found (not defined in Dockerfile)
+# demo-mockoon-docker:
+#   stage: test
+#   services:
+#     # https://hub.docker.com/r/mockoon/cli
+#     - name: mockoon/cli:latest
+#       alias: mockoon
+#       # all services have the job directory mounted as a volume under /builds
+#       #command: ["ls", "-al", "/builds"]
+#       # https://github.com/mockoon/cli/blob/main/docker/Dockerfile
+#       entrypoint: ["mockoon-cli", "start", "--hostname", "0.0.0.0", "--daemon-off"]
+#       command: ["--data /builds/Be11S/demo-pipeline-gitlab/mocks/demo.json --port 3000"]
+#   before_script:
+#     - cat /etc/issue
+#   script:
+#     - curl http://mockoon:3000/users?total=5
+
+# fails
+# demo-mockoon-docker:
+#   stage: test
+#   image: docker:latest
+#   services:
+#    - docker:dind
+#   variables:
+#     FF_NETWORK_PER_BUILD: "true"
+#   before_script:
+#     - cat /etc/issue
+#     - docker version
+#     - echo $(pwd)
+#     - docker run -d --name mockoon --network=host --volume "$(pwd)":"$(pwd)" --workdir "$(pwd)" --hostname mockoon.local -p 3000:3000 mockoon/cli:latest -d "$(pwd)/mocks/demo.json" -p 3000
+#     - apk update
+#     - apk add curl
+#   script:
+#     - docker ps
+#     - curl http://mockoon:3000/users?total=5 || true
+#     - curl http://mockoon.local:3000/users?total=5 || true
+#   after_script:
+#     - docker stop mockoon
+#     - docker rm mockoon

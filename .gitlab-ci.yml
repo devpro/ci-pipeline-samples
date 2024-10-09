@@ -1,4 +1,14 @@
-variables:
-  ROOT_FOLDER: samples/dotnet
+include:
+  - "/.gitlab/dotnet/build-test.yml"
+  - "/.gitlab/mockoon/demo.yml"
 
-include: "/.gitlab/dotnet/build-test.yml"
+ci:
+  stage: build
+  image: node:lts
+  script:
+    - npm install -g markdownlint-cli
+    - markdownlint README.md
+
+stages:
+  - build
+  - test
