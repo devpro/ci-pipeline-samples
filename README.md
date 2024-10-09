@@ -6,7 +6,7 @@ Simple "getting started" tutorials with various tools.
 
 ## Code samples
 
-* [.NET 5](./dotnet/README.md)
+* [.NET](./samples/dotnet/README.md)
 
 ## Platforms
 
