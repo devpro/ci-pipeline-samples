@@ -5,11 +5,8 @@
 #   before_script:
 #     - npm install -g @mockoon/cli
 #     - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000
-#     - mockoon-cli list
 #   script:
 #     - curl http://localhost:3000/users?total=5
-#   after_script:
-#     - mockoon-cli stop "all"
 
 # works
 mockoon:demo-dotnet:
@@ -21,6 +18,7 @@ mockoon:demo-dotnet:
     - apt-get install -y npm
     - npm install -g @mockoon/cli
     - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000 &
+    - sleep 5
   script:
     - curl http://localhost:3000/users?total=5
 
