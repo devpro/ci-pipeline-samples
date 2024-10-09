@@ -1,4 +1,6 @@
-include: "/.gitlab/dotnet/build-test.yml"
+include:
+  - "/.gitlab/dotnet/build-test.yml"
+  - "/.gitlab/mockoon/demo.yml"
 
 ci:
   stage: build
