@@ -1,5 +1,5 @@
 # works
-# demo-mockoon:
+# mockoon:demo:
 #   stage: test
 #   image: node:lts
 #   before_script:
@@ -12,7 +12,7 @@
 #     - mockoon-cli stop "all"
 
 # works
-demo-mockoon-dotnet:
+mockoon:demo-dotnet:
   stage: test
   image: mcr.microsoft.com/dotnet/sdk:8.0
   before_script:
@@ -20,12 +20,9 @@ demo-mockoon-dotnet:
     - apt-get install -y gnupg
     - apt-get install -y npm
     - npm install -g @mockoon/cli
-    - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000
-    - mockoon-cli list
+    - mockoon-cli start --data "$(pwd)/samples/mocks/demo.json" --port 3000 &
   script:
     - curl http://localhost:3000/users?total=5
-  after_script:
-    - mockoon-cli stop "all"
 
 # fails: FATAL: No HOST or PORT found (not defined in Dockerfile)
 # demo-mockoon-docker:
